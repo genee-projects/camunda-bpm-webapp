@@ -19,7 +19,7 @@
          ctn-collapsable="left">
 
       <dl class="process-information">
-        <dt>Definition Version:</dt>
+        <dt>{{ 'Definition Version:' | translate }}</dt>
         <dd class="definition-version">
           <span ng-if="!instanceStatistics.$loaded"
                 class="glyphicon glyphicon-refresh animate-spin"></span>
@@ -46,7 +46,7 @@
           </span>
         </dd>
 
-        <dt>Version Tag:</dt>
+        <dt>{{ 'Version Tag:' | translate }}</dt>
         <dd class="version-tag"
             ng-if="processDefinition.versionTag">{{ processDefinition.versionTag }}</dd>
         <dd class="version-tag"
@@ -59,12 +59,12 @@
             ng-mouseleave="hoverTitle()">{{ processDefinition.id }}</dd>
 
         <dt cam-widget-clipboard="processDefinition.key"
-            ng-class="{hovered: hovered === 'definition-key'}">Definition Key:</dt>
+            ng-class="{hovered: hovered === 'definition-key'}">{{ 'Definition Key:' | translate }}</dt>
         <dd class="definition-key"
             ng-mouseenter="hoverTitle('definition-key')"
             ng-mouseleave="hoverTitle()">{{ processDefinition.key }}</dd>
 
-        <dt>Definition Name:</dt>
+        <dt>{{ 'Definition Name:' | translate }}</dt>
         <dd class="definition-name"
             ng-if="processDefinition.name && processDefinition.name !== processDefinition.key">{{ processDefinition.name }}</dd>
         <dd class="definition-name"
@@ -72,30 +72,30 @@
 
         <dt ng-if="processDefinition.tenantId"
             cam-widget-clipboard="processDefinition.tenantId"
-            ng-class="{hovered: hovered === 'tenant-id'}">Tenant ID:</dt>
+            ng-class="{hovered: hovered === 'tenant-id'}">{{ 'Tenant ID:' | translate }}</dt>
         <dd class="tenant-id"
             ng-if="processDefinition.tenantId"
             ng-mouseenter="hoverTitle('tenant-id')"
             ng-mouseleave="hoverTitle()">{{ processDefinition.tenantId }}</dd>
-        <dt ng-if="!processDefinition.tenantId">Tenant ID:</dt>
+        <dt ng-if="!processDefinition.tenantId">{{ 'Tenant ID:' | translate }}</dt>
         <dd class="tenant-id"
             ng-if="!processDefinition.tenantId"><span class="null-value">null</span></dd>
 
         <dt cam-widget-clipboard="processDefinition.deploymentId"
-            ng-class="{hovered: hovered === 'deployment-id'}">Deployment ID:</dt>
+            ng-class="{hovered: hovered === 'deployment-id'}">{{ 'Deployment ID:' | translate }}</dt>
         <dd class="deployment-id"
             ng-mouseenter="hoverTitle('deployment-id')"
             ng-mouseleave="hoverTitle()">
           <a ng-href="{{ getDeploymentUrl() }}">{{ processDefinition.deploymentId }}</a>
         </dd>
 
-        <dt>Instances Running:</dt>
+        <dt>{{ 'Instances Running:' | translate }}</dt>
         <dd class="running-instances">
           <span ng-if="!instanceStatistics.$loaded"
                 class="glyphicon glyphicon-refresh animate-spin"></span>
           <ul ng-if="instanceStatistics.$loaded">
             <li>
-              current version:
+              {{ 'current version:' | translate }}
               <strong class="current-version">{{ instanceStatistics.current.count }}</strong>
               <a ng-href="{{ getMigrationUrl() }}"
                  class="instance-upgrade-link"
@@ -105,7 +105,7 @@
               </a>
             </li>
             <li>
-              all versions:
+              {{ 'all versions:' | translate }}
               <strong class="all-versions">{{ instanceStatistics.all.count }}</strong>
               <a ng-href="{{ getMigrationUrl() }}"
                  class="instance-upgrade-link"
@@ -117,17 +117,17 @@
           </ul>
         </dd>
 
-        <dt ng-if="hasMigrationPlugin || hasReportPlugin">Related:</dt>
+        <dt ng-if="hasMigrationPlugin || hasReportPlugin">{{ 'Related:' | translate }}</dt>
         <dd ng-if="hasMigrationPlugin || hasReportPlugin">
           <ul>
             <li ng-if="hasReportPlugin">
               <a class="report-link"
                  ng-href="#/reports/reporting-duration-report?processDefinitionKey={{ processDefinition.key }}&processDefinitionVersion={{ processDefinition.version }}">
-                Reports
+                {{ 'Reports' | translate }}
               </a>
             </li>
             <li ng-if="hasMigrationPlugin">
-              <a ng-href="#/migration?searchQuery=%5B%5D&sourceKey={{ processDefinition.key }}">Migration</a>
+              <a ng-href="#/migration?searchQuery=%5B%5D&sourceKey={{ processDefinition.key }}">{{ 'Migration' | translate }}</a>
             </li>
           </ul>
         </dd>

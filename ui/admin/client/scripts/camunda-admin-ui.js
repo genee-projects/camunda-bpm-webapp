@@ -32,6 +32,15 @@ module.exports = function(pluginDependencies) {
 
   var appNgModule = angular.module(APP_NAME, ngDependencies);
 
+  function getUri(id) {
+    var uri = $('base').attr(id);
+    if (!id) {
+      throw new Error('Uri base for ' + id + ' could not be resolved');
+    }
+
+    return uri;
+  }
+
   var ModuleConfig = [
     '$routeProvider',
     'UriProvider',
@@ -40,16 +49,6 @@ module.exports = function(pluginDependencies) {
       UriProvider
     ) {
       $routeProvider.otherwise({ redirectTo: '/' });
-
-
-      function getUri(id) {
-        var uri = $('base').attr(id);
-        if (!id) {
-          throw new Error('Uri base for ' + id + ' could not be resolved');
-        }
-
-        return uri;
-      }
 
       UriProvider.replace(':appName', 'admin');
       UriProvider.replace('app://', getUri('href'));
@@ -70,7 +69,10 @@ module.exports = function(pluginDependencies) {
       }]);
     }];
 
+  appNgModule.provider('configuration', require('./../../../common/scripts/services/cam-configuration')(window.camAdminConf, 'Admin'));
+
   appNgModule.config(ModuleConfig);
+  require('./../../../common/scripts/services/locales')(appNgModule, getUri('app-root'), 'admin');
 
   appNgModule.controller('camAdminAppCtrl', [
     '$scope',

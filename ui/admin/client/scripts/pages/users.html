@@ -4,13 +4,13 @@
   <div class="section-content">
     <header class="row">
       <div class="col-xs-8">
-        <h3>List of users</h3>
+        <h3>{{ 'HEADER_LIST_OF_USERS' | translate }}</h3>
       </div>
       <div class="col-xs-4 text-right">
         <a class="btn btn-default"
            ng-show="availableOperations.create"
            href="#/user-create">
-          Add user
+          {{ 'HEADER_ADD_USER' | translate }}
           <span class="glyphicon glyphicon-plus-sign"></span>
         </a>
       </div>
@@ -21,9 +21,9 @@
       <table class="cam-table">
         <thead>
           <tr>
-            <th class="name">Name</th>
-            <th class="username">Username</th>
-            <th class="action">Action</th>
+            <th class="name">{{ 'NAME' | translate }}</th>
+            <th class="username">{{ 'USERNAME' | translate }}</th>
+            <th class="action">{{ 'ACTION' | translate }}</th>
           </tr>
         </thead>
 
@@ -48,7 +48,7 @@
     <div ng-show="loadingState === 'EMPTY' && pages.total && (!userList || !userList.length)"
          class="well">
       <span class="glyphicon glyphicon-info-sign"></span>
-      The current search parameters could not retrieve any users. Try to <a ng-click="pageChange(1)">reset page number.</a>
+      {{ 'SEARCH_PARAMS_RETRIEVE_NO_USER_TRY_TO' | translate }} <a ng-click="pageChange(1)">{{ 'RESET_PAGE_NUMBER_LINK' | translate }}</a>
     </div>
 
     <pagination ng-if="pages.total > pages.size"

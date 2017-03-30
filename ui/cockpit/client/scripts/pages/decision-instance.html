@@ -22,7 +22,7 @@
       <dl class="process-information">
         <dt cam-widget-clipboard="decisionInstance.id"
             cam-hoverable-title="instance-id">
-          <span tooltip="Decision instance ID as it appears in the database">Instance ID:</span>
+          <span tooltip="Decision instance ID as it appears in the database">{{ 'Instance ID:' | translate }}</span>
         </dt>
         <dd class="instance-id"
             cam-hover-trigger="instance-id">{{ decisionInstance.id }}</dd>
@@ -31,18 +31,18 @@
         <dd class="definition-version">{{decisionDefinition.version}}</dd>
 
         <dt cam-widget-clipboard="decisionInstance.decisionDefinitionId"
-            cam-hoverable-title="definition-id">Definition ID:</dt>
+            cam-hoverable-title="definition-id">{{ 'Definition ID:' | translate }}</dt>
         <dd class="definition-id"
             cam-hover-trigger="definition-id">
           <a ng-href="#/decision-definition/{{ decisionInstance.decisionDefinitionId }}">{{ decisionInstance.decisionDefinitionId }}</a>
         </dd>
 
         <dt cam-widget-clipboard="decisionInstance.decisionDefinitionKey"
-            cam-hoverable-title="definition-key">Definition Key:</dt>
+            cam-hoverable-title="definition-key">{{ 'Definition Key:' | translate }}</dt>
         <dd class="definition-key"
             cam-hover-trigger="definition-key">{{ decisionInstance.decisionDefinitionKey }}</dd>
 
-        <dt>Definition Name:</dt>
+        <dt>{{ 'Definition Name:' | translate }}</dt>
         <dd class="definition-name"
             ng-if="decisionInstance.decisionDefinitionName && decisionInstance.decisionDefinitionName !== decisionInstance.key">{{ decisionInstance.decisionDefinitionName }}</dd>
         <dd class="definition-name"
@@ -50,16 +50,16 @@
 
         <dt ng-if="decisionDefinition.tenantId"
             cam-widget-clipboard="decisionDefinition.tenantId"
-            cam-hoverable-title="tenant-id">Tenant ID:</dt>
+            cam-hoverable-title="tenant-id">{{ 'Tenant ID:' | translate }}</dt>
         <dd class="tenant-id"
             ng-if="decisionDefinition.tenantId"
             cam-hover-trigger="tenant-id">{{ decisionDefinition.tenantId }}</dd>
-        <dt ng-if="!decisionDefinition.tenantId">Tenant ID:</dt>
+        <dt ng-if="!decisionDefinition.tenantId">{{ 'Tenant ID:' | translate }}</dt>
         <dd class="tenant-id"
             ng-if="!decisionDefinition.tenantId"><span class="null-value">null</span></dd>
 
         <dt cam-widget-clipboard="decisionDefinition.deploymentId"
-            cam-hoverable-title="deployment-id">Deployment ID:</dt>
+            cam-hoverable-title="deployment-id">{{ 'Deployment ID:' | translate }}</dt>
         <dd class="deployment-id"
             ng-if="decisionDefinition"
             cam-hover-trigger="deployment-id">
@@ -68,19 +68,19 @@
 
         <dt ng-if="decisionInstance.processInstanceId"
             cam-widget-clipboard="decisionInstance.processInstanceId"
-            cam-hoverable-title="super-process-instance-id">Process Instance ID:</dt>
+            cam-hoverable-title="super-process-instance-id">{{ 'Process Instance ID:' | translate }}</dt>
         <dd class="super-process-instance-id"
             ng-if="decisionInstance.processInstanceId"
             cam-hover-trigger="super-process-instance-id">
           <a ng-href="{{ processInstanceLink }}">{{ decisionInstance.processInstanceId }}</a>
         </dd>
-        <dt ng-if="!decisionInstance.processInstanceId">Process Instance ID:</dt>
+        <dt ng-if="!decisionInstance.processInstanceId">{{ 'Process Instance ID:' | translate }}</dt>
         <dd class="super-process-instance-id"
             ng-if="!decisionInstance.processInstanceId"><span class="null-value">null</span></dd>
 
         <dt ng-if="decisionInstance.caseInstanceId"
             cam-widget-clipboard="decisionInstance.caseInstanceId"
-            cam-hoverable-title="super-case-instance-id">Case Instance ID:</dt>
+            cam-hoverable-title="super-case-instance-id">{{ 'Case Instance ID:' | translate }}</dt>
         <dd class="super-case-instance-id"
             ng-if="decisionInstance.caseInstanceId"
             cam-hover-trigger="super-case-instance-id">
@@ -92,14 +92,14 @@
             {{ decisionInstance.caseInstanceId }}
           </span>
         </dd>
-        <dt ng-if="!decisionInstance.caseInstanceId">Case Instance ID:</dt>
+        <dt ng-if="!decisionInstance.caseInstanceId">{{ 'Case Instance ID:' | translate }}</dt>
         <dd class="super-case-instance-id"
             ng-if="!decisionInstance.caseInstanceId"><span class="null-value">null</span></dd>
 
 
         <dt ng-if="decisionInstance.decisionRequirementsDefinitionId"
             cam-widget-clipboard="decisionInstance.decisionRequirementsDefinitionId"
-            cam-hoverable-title="drd">Decision Requirements Definition:</dt>
+            cam-hoverable-title="drd">{{ 'Decision Requirements Definition:' | translate }}</dt>
         <dd class="super-case-instance-id"
             ng-if="decisionInstance.decisionRequirementsDefinitionId"
             cam-hover-trigger="drd">
@@ -111,7 +111,7 @@
             {{ decisionInstance.decisionRequirementsDefinitionId }}
           </span>
         </dd>
-        <dt ng-if="!decisionInstance.decisionRequirementsDefinitionId">Decision Requirements Definition:</dt>
+        <dt ng-if="!decisionInstance.decisionRequirementsDefinitionId">{{ 'Decision Requirements Definition:' | translate }}</dt>
         <dd class="super-case-instance-id"
             ng-if="!decisionInstance.decisionRequirementsDefinitionId"><span class="null-value">null</span></dd>
 

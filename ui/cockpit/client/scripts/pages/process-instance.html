@@ -22,10 +22,10 @@
 
       <ul class="nav nav-tabs">
         <li ng-class="{active: sidebarTab === 'info'}">
-          <a ng-click="sidebarTab = 'info'">Information</a>
+          <a ng-click="sidebarTab = 'info'">{{ 'Information' | translate }}</a>
         </li>
         <li ng-class="{active: sidebarTab === 'filters'}">
-          <a ng-click="sidebarTab = 'filters'">Filter</a>
+          <a ng-click="sidebarTab = 'filters'">{{ 'Filter' | translate }}</a>
         </li>
       </ul>
 
@@ -34,7 +34,7 @@
         <dl class="process-information">
           <dt cam-widget-clipboard="processInstance.id"
               ng-class="{hovered: hovered === 'instance-id'}">
-            <span tooltip="Process instance ID as it appears in the database">Instance ID:</span>
+            <span tooltip="Process instance ID as it appears in the database">{{ 'Instance ID:' | translate }}</span>
           </dt>
           <dd class="instance-id"
               ng-mouseenter="hoverTitle('instance-id')"
@@ -45,7 +45,7 @@
           <dt cam-widget-clipboard="processInstance.businessKey"
               ng-class="{hovered: hovered === 'business-key'}"
               ng-if="processInstance.businessKey">
-            <span tooltip="Business key of the process instance">Business Key:</span>
+            <span tooltip="Business key of the process instance">{{ 'Business Key:' | translate }}</span>
           </dt>
           <dd ng-if="processInstance.businessKey"
               class="business-key"
@@ -54,12 +54,12 @@
             {{ processInstance.businessKey }}
           </dd>
           <dt ng-if="!processInstance.businessKey">
-            <span tooltip="Business key of the process instance">Business Key:</span>
+            <span tooltip="Business key of the process instance">{{ 'Business Key:' | translate }}</span>
           </dt>
           <dd ng-if="!processInstance.businessKey"
               class="business-key"><span class="null-value">null</span></dd>
 
-          <dt>Definition Version:</dt>
+          <dt>{{ 'Definition Version:' | translate }}</dt>
           <dd class="definition-version">
             {{ processDefinition.version }}
             <a ng-href="{{ getMigrationUrl() }}"
@@ -71,7 +71,7 @@
           </dd>
 
           <dt cam-widget-clipboard="processDefinition.id"
-              ng-class="{hovered: hovered === 'definition-id'}">Definition ID:</dt>
+              ng-class="{hovered: hovered === 'definition-id'}">{{ 'Definition ID:' | translate }}</dt>
           <dd class="definition-id"
               ng-mouseenter="hoverTitle('definition-id')"
               ng-mouseleave="hoverTitle()">
@@ -79,38 +79,38 @@
           </dd>
 
           <dt cam-widget-clipboard="processDefinition.key"
-              ng-class="{hovered: hovered === 'definition-key'}">Definition Key:</dt>
+              ng-class="{hovered: hovered === 'definition-key'}">{{ 'Definition Key:' | translate }}</dt>
           <dd class="definition-key"
               ng-mouseenter="hoverTitle('definition-key')"
               ng-mouseleave="hoverTitle()">{{ processDefinition.key }}</dd>
 
-          <dt>Definition Name:</dt>
+          <dt>{{ 'Definition Name:' | translate }}</dt>
           <dd class="definition-name">{{ processDefinition.name }}</dd>
 
           <dt ng-if="processInstance.tenantId"
               ng-class="{hovered: hovered === 'tenant-id'}"
-              cam-widget-clipboard="processInstance.tenantId">Tenant ID:</dt>
+              cam-widget-clipboard="processInstance.tenantId">{{ 'Tenant ID:' | translate }}</dt>
           <dd class="tenant-id"
               ng-if="processInstance.tenantId"
               ng-mouseenter="hoverTitle('tenant-id')"
               ng-mouseleave="hoverTitle()">{{ processInstance.tenantId }}</dd>
-          <dt ng-if="!processInstance.tenantId">Tenant ID:</dt>
+          <dt ng-if="!processInstance.tenantId">{{ 'Tenant ID:' | translate }}</dt>
           <dd class="tenant-id"
               ng-if="!processInstance.tenantId"><span class="null-value">null</span></dd>
 
           <dt cam-widget-clipboard="processDefinition.deploymentId"
-              ng-class="{hovered: hovered === 'deployment-id'}">Deployment ID:</dt>
+              ng-class="{hovered: hovered === 'deployment-id'}">{{ 'Deployment ID:' | translate }}</dt>
           <dd class="deployment-id"
               ng-mouseenter="hoverTitle('deployment-id')"
               ng-mouseleave="hoverTitle()">
             <a ng-href="{{ getDeploymentUrl() }}">{{ processDefinition.deploymentId }}</a>
           </dd>
 
-          <dt ng-if="hasMigrationPlugin">Related:</dt>
+          <dt ng-if="hasMigrationPlugin">{{ 'Related:' | translate }}</dt>
           <dd ng-if="hasMigrationPlugin">
             <ul>
               <li>
-                <a ng-href="#/migration?searchQuery=%5B%5D&sourceKey={{ processDefinition.key }}">Migration</a>
+                <a ng-href="#/migration?searchQuery=%5B%5D&sourceKey={{ processDefinition.key }}">{{ 'Migration' | translate }}</a>
               </li>
             </ul>
           </dd>
@@ -122,7 +122,7 @@
         <h5>
           Filter
           <span class="glyphicon glyphicon-info-sign"
-                tooltip="The activity instance tree with all currently selected activity instances. You may change the selection via (CTRL +) click."></span>
+                tooltip="{{ 'The activity instance tree with all currently selected activity instances. You may change the selection via (CTRL +) click.' | translate }}"></span>
         </h5>
 
         <div cam-quick-filter
@@ -181,7 +181,7 @@
       <!-- content bottom pane -->
       <div class="ctn-row ctn-content-bottom ctn-tabbed">
         <a class="show-collapsable vertical-collapse"
-           title="Hide tabs"></a>
+           title="{{ 'Hide tabs' | translate }}"></a>
         <div cam-tabs="{component: 'cockpit.processInstance.runtime.tab'}"
              providers="tabs"
              vars="processInstanceVars"

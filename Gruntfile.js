@@ -84,6 +84,18 @@ module.exports = function(grunt) {
     buildTarget: pkg.gruntConfig.welcomeBuildTarget
   });
 
+  require('./grunt/config/localescompile')(config, localesConf, {
+    appName: 'admin',
+    sourceDir: pkg.gruntConfig.adminSourceDir,
+    buildTarget: pkg.gruntConfig.adminBuildTarget
+  });
+
+  require('./grunt/config/localescompile')(config, localesConf, {
+    appName: 'cockpit',
+    sourceDir: pkg.gruntConfig.cockpitSourceDir,
+    buildTarget: pkg.gruntConfig.cockpitBuildTarget
+  });
+
   var watchConf = {
     commons_styles: {
       options: {
@@ -202,9 +214,7 @@ grunt.registerTask('build', function(mode, app) {
       'less'
     );
 
-    if(typeof app === 'undefined' || app === 'tasklist') {
-      tasksToRun.push('localescompile');
-    }
+    tasksToRun.push('localescompile');
 
     if(grunt.config.data.buildMode === 'prod') {
       tasksToRun.push('uglify');
